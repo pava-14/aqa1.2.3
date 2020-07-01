@@ -21,7 +21,7 @@ public class PostmanEchoTest {
                 .then()
                 .statusCode(200)
                 .body("json", equalTo(null))
-                .body("url", equalTo("https://postman-echo.com/post"))
+                .body("url", equalTo("https://postman-echo.com/unknown"))
                 ;
     }
 }

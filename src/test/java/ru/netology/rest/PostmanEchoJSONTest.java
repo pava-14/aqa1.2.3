@@ -1,32 +1,28 @@
 package ru.netology.rest;
 
-
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.equalTo;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PostmanEchoJSONTest {
-/*
-JSONObject updateData = new JSONObject();
-        updateData.put("name", "Aarna");
 
- */
     @Test
     public void shouldReturnPostmanEcho() {
+        JSONObject jsonObj = new JSONObject()
+                .put("id", 10)
+                .put("name", "John")
+                .put("location", "Office");
         // Given - When - Then
         // Предусловия
         ValidatableResponse some_data = given()
                 .baseUri("https://postman-echo.com")
-                .body("{\n" +
-                        "  \"id\":\"10\", \n" +
-                        "  \"name\":\"John\", \n" +
-                        "  \"job\":\"QA Engineer\",\n" +
-                        "  \"location\":\"Office\"\n" +
-                        "}\n") // отправляемые данные (заголовки и query можно выставлять аналогично)
+                .contentType("application/json")
+                .body(jsonObj.toString()) // отправляемые данные
                 // Выполняемые действия
                 .when()
                 .post("/post")
@@ -34,9 +30,7 @@ JSONObject updateData = new JSONObject();
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-//                .body("json", equalTo(null))
                 .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
-                .body("url", equalTo("https://postman-echo.com/post"))
-                ;
+                .body("url", equalTo("https://postman-echo.com/post"));
     }
 }

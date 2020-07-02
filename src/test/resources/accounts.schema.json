@@ -1,19 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
-  "required": [
-    "args",
-    "data",
-    "files",
-    "form",
-    "headers",
-    "json",
-    "url"
-  ],
-  "additionalProperties": false,
   "properties": {
     "args": {
-      "type": "string"
+      "type": "object"
     },
     "data": {
       "type": "object",
@@ -22,23 +12,76 @@
           "type": "integer"
         },
         "name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "job": {
-          "type": "string",
-          "minLength": 1
+          "type": "string"
         },
         "location": {
-          "type": "string",
-          "minLength": 1
-        },
-        "files",
-        "form",
-        "headers",
-        "json",
-        "url"
+          "type": "string"
+        }
       }
+    },
+    "files": {
+      "type": "object"
+    },
+    "form": {
+      "type": "object"
+    },
+    "headers": {
+      "type": "object",
+      "properties": {
+        "x-forwarded-proto": {
+          "type": "string"
+        },
+        "x-forwarded-port": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "x-amzn-trace-id": {
+          "type": "string"
+        },
+        "content-length": {
+          "type": "string"
+        },
+        "content-type": {
+          "type": "string"
+        },
+        "user-agent": {
+          "type": "string"
+        },
+        "accept": {
+          "type": "string"
+        },
+        "cache-control": {
+          "type": "string"
+        },
+        "postman-token": {
+          "type": "string"
+        },
+        "accept-encoding": {
+          "type": "string"
+        },
+        "cookie": {
+          "type": "string"
+        }
+      }
+    },
+    "json": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

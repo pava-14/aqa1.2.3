@@ -30,7 +30,7 @@ public class PostmanEchoJSONTest {
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
-                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+                .body(matchesJsonSchemaInClasspath("postmanecho.schema.json"))
                 .body("url", equalTo("https://postman-echo.com/post"));
     }
 }

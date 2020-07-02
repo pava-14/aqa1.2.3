@@ -6,7 +6,7 @@
       "type": "object"
     },
     "data": {
-      "type": "integer",
+      "type": "object",
       "properties": {
         "id": {
           "type": "integer"

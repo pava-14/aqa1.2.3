@@ -7,6 +7,11 @@
     },
     "data": {
       "type": "object",
+      "required": [
+        "id",
+        "name",
+        "location"
+      ],
       "properties": {
         "id": {
           "type": "integer"

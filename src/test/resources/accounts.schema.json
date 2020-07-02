@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "required": [
+    "args",
+    "data",
+    "files",
+    "form",
+    "headers",
+    "json",
+    "url"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "args": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "job": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "files",
+        "form",
+        "headers",
+        "json",
+        "url"
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class PostmanEchoTest {
-    @Test
+    //@Test
     public void shouldReturnPostmanEcho() {
         // Given - When - Then
         // Предусловия
@@ -22,6 +22,6 @@ public class PostmanEchoTest {
                 .statusCode(200)
                 .body("json", equalTo(null))
                 .body("url", equalTo("https://postman-echo.com/post"))
-                ;
+        ;
     }
 }

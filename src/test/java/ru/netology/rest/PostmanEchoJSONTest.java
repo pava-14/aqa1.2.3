@@ -19,7 +19,7 @@ public class PostmanEchoJSONTest {
                 .put("location", "Office");
         // Given - When - Then
         // Предусловия
-        ValidatableResponse some_data = given()
+        ValidatableResponse response = given()
                 .baseUri("https://postman-echo.com")
                 .contentType("application/json")
                 .body(jsonObj.toString()) // отправляемые данные
@@ -31,6 +31,8 @@ public class PostmanEchoJSONTest {
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .body(matchesJsonSchemaInClasspath("postmanecho.schema.json"))
+                .body("json.id", equalTo(10))
+                .body("json.name", equalTo("John"))
                 .body("url", equalTo("https://postman-echo.com/post"));
     }
 }
